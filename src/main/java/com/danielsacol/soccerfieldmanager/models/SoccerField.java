@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name="soccerFieldManager")
+@Table(name="fields")
 public class SoccerField implements Serializable {
     @Id
     @Column(name="id")
