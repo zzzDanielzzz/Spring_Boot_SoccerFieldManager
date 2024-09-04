@@ -8,8 +8,10 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ObjectUtils;
+
 import org.springframework.web.multipart.MultipartFile;
+
+import com.cloudinary.Cloudinary;
 
 @Service
 public class CloudinaryService {
@@ -28,12 +30,12 @@ public class CloudinaryService {
         String fileName = newName + "_" + timestamp;
 
         @SuppressWarnings("unchecked")
-        Map<String, Object> uploadResult = (Map<String, Object>)cloudinary.uploader().upload(file.fetBytes(), ObjectUtils.asMap(
+        Map<String, Object> uploadResult = (Map<String, Object>)cloudinary.uploader().upload(file.getBytes(), com.cloudinary.utils.ObjectUtils.asMap(
             "folder", folder,
             "public_id", fileName
 
         ));
 
-
+        return uploadResult;
     }
 }

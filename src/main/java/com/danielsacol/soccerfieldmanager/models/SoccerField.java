@@ -18,8 +18,6 @@ public class SoccerField implements Serializable {
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(unique = true)
     private String fieldName;
     private String capacity;
     private String photo;
